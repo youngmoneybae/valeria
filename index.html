@@ -19,7 +19,7 @@
 @property --s{syntax:'<length>';inherits:true;initial-value:56px}
 /* Весь сайт — один путь от старта к цели. Слева проходит сквозная линия, на ней точки-этапы. У каждого блока одна и та же сетка: линия, затем метка этапа, затем содержимое. Фон пудровый до самого финала, финал винный. */
 :root{
-  --powder:#FBF1EF; --blush:#F3D8D6; --wine:#7A1F34; --ink:#2B0F18; --rose:#B0566A;
+  --powder:#FBF1EF; --paper:#FFFAF8; --blush:#F3D8D6; --wine:#7A1F34; --ink:#2B0F18; --rose:#B0566A;
   --muted:#6E4C55; --hair:rgba(43,15,24,.15);
   --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
   --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
@@ -275,7 +275,7 @@ a{color:inherit}
 .pg.r::after{background:linear-gradient(to right,rgba(43,15,24,.12),transparent 12%)}
 .ph{aspect-ratio:3/4;overflow:hidden;background:var(--blush)}
 .ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:opacity .2s}
-.book[data-c="1"] .ph img{object-position:50% 34%}
+
 .ph img.sw{opacity:0}
 .cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 2px 16px;min-height:58px}
 .cap b{font:italic 500 clamp(24px,3vw,34px)/1 var(--serif);color:var(--wine)}
@@ -659,7 +659,7 @@ a{color:inherit}
 </script>
 <script>
 (function(){
-  var IMG=[{"b": {"side": "img/35cdbf7417.jpg", "front": "img/f58034aef8.jpg", "back": "img/b816797fe1.jpg"}, "a": {"back": "img/599ea7ebd8.jpg", "side": "img/6093a68ced.jpg", "front": "img/aaecbc0df3.jpg"}}, {"b": {"back": "img/2ed9893335.jpg", "side": "img/dc52d3e8bd.jpg", "front": "img/bf7ca4af5c.jpg"}, "a": {"back": "img/bc8a9f9aeb.jpg", "side": "img/71c0fc82da.jpg", "front": "img/0859d9f1f1.jpg"}}];
+  var IMG=[{"b": {"side": "img/35cdbf7417.jpg", "front": "img/f58034aef8.jpg", "back": "img/b816797fe1.jpg"}, "a": {"back": "img/599ea7ebd8.jpg", "side": "img/6093a68ced.jpg", "front": "img/aaecbc0df3.jpg"}}, {"b": {"front": "img/899632e7f7.jpg", "side": "img/36fc01d830.jpg", "back": "img/ed625935ed.jpg"}, "a": {"front": "img/5065de20e6.jpg", "side": "img/3e7a62fa25.jpg", "back": "img/94598564f8.jpg"}}];
   var ANG=['front','side','back'],LAB=['Спереди','Сбоку','Сзади'],NAMES=['Клиентка 1','Клиентка 2'];
   var c=0,a=0,flipped=false;
   function $(id){return document.getElementById(id)}
