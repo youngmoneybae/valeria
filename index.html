@@ -1,0 +1,720 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Валерия, женский фитнес-тренер в Новосибирске: онлайн-ведение и тренировки в зале. Первая пробная тренировка бесплатно.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Валерия онлайн — женский фитнес-тренер">
+<meta property="og:description" content="Сочные формы и любовь к себе. Онлайн и в зале в Новосибирске. Первая тренировка бесплатно.">
+<meta property="og:image" content="https://youngmoneybae.github.io/valeria/img/45816c7832.jpg">
+<meta property="og:url" content="https://youngmoneybae.github.io/valeria/">
+<meta name="theme-color" content="#2A201B">
+<title>Валерия онлайн</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+@property --s{syntax:'<length>';inherits:true;initial-value:56px}
+/* Весь сайт — один путь от старта к цели. Слева проходит сквозная линия, на ней точки-этапы. У каждого блока одна и та же сетка: линия, затем метка этапа, затем содержимое. Фон пудровый до самого финала, финал винный. */
+:root{
+  --powder:#FBF1EF; --blush:#F3D8D6; --wine:#7A1F34; --ink:#2B0F18; --rose:#B0566A;
+  --muted:#6E4C55; --hair:rgba(43,15,24,.15);
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --rail:clamp(28px,6vw,96px);
+  --stage:#2A201B; --stage-muted:rgba(251,241,239,.74); --stage-hair:rgba(251,241,239,.2);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--powder);color:var(--ink);font:400 16.5px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;letter-spacing:-.01em;text-wrap:balance}
+h2{font-size:clamp(40px,6vw,78px);line-height:1}
+em{font-style:italic;color:var(--wine)}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--wine);outline-offset:4px;border-radius:4px}
+.lead{color:var(--muted);max-width:46ch;font-size:17px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:14px 30px;border-radius:999px;font:600 12.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;text-align:center;transition:background .3s,color .3s}
+.btn-p{background:var(--wine);color:var(--powder)}
+.btn-p:hover{background:var(--ink)}
+.btn-o{border:1px solid var(--ink)}
+.btn-o:hover{background:var(--ink);color:var(--powder)}
+
+/* шапка */
+.top{background:var(--stage);color:var(--powder)}
+.top .btn-o{border-color:rgba(251,241,239,.6)}
+.top .btn-o:hover{background:var(--powder);color:var(--ink)}
+.top :focus-visible{outline-color:var(--powder)}
+.top .in{max-width:1240px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font:600 24px/1 var(--serif);text-decoration:none}
+.logo i{color:var(--blush)}
+.nav{display:none}
+.top .btn{min-height:42px;padding:10px 20px;font-size:11.5px}
+@media (min-width:900px){.nav{display:flex;gap:34px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}.nav a{text-decoration:none}.nav a:hover{color:var(--blush)}}
+
+/* путь: каждая секция — отрезок одной линии */
+.step{position:relative}
+.step > .w{position:relative;max-width:1240px;margin-inline:auto;padding-left:calc(max(20px,env(safe-area-inset-left,0px)) + var(--rail));padding-right:max(20px,env(safe-area-inset-right,0px));padding-block:clamp(64px,9vw,120px)}
+.step > .w::before{content:"";position:absolute;top:0;bottom:0;left:calc(max(20px,env(safe-area-inset-left,0px)) + 5px);width:1px;background:var(--hair)}
+.step > .w::after{content:"";position:absolute;top:0;bottom:0;left:calc(max(20px,env(safe-area-inset-left,0px)) + 5px);width:1px;background:var(--wine);transform:scaleY(var(--fill,0));transform-origin:top;transition:transform 1.1s cubic-bezier(.3,.7,.2,1)}
+.step.seen > .w::after{--fill:1}
+.mark{position:relative;display:flex;align-items:center;gap:14px;margin-bottom:28px;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--wine)}
+.mark::before{content:"";position:absolute;left:calc(var(--rail) * -1);top:50%;width:11px;height:11px;margin-top:-5.5px;border-radius:50%;background:var(--powder);border:1px solid var(--wine);transition:background .4s}
+.step.seen .mark::before{background:var(--wine)}
+.mark b{font:italic 500 22px/1 var(--serif);letter-spacing:0;text-transform:none}
+.mark span{color:var(--muted)}
+.step.first > .w::before,.step.first > .w::after{top:calc(clamp(64px,9vw,120px) + 9px)}
+
+/* 00 старт: тёмная сцена под настроение фото */
+.hero{background:var(--stage);color:var(--powder);overflow:hidden}
+.hero > .w{padding-top:clamp(28px,4vw,48px);position:relative;z-index:1}
+.hero > .w::before{background:var(--stage-hair)}
+.hero > .w::after{background:var(--blush)}
+.hero .mark{color:var(--blush)}
+.hero .mark span{color:var(--stage-muted)}
+.hero .mark::before{background:var(--stage);border-color:var(--blush)}
+.hero.seen .mark::before{background:var(--blush)}
+.hero em{color:var(--blush)}
+.hero :focus-visible{outline-color:var(--powder)}
+.hero-txt{min-width:0}
+.hero h1{font-size:clamp(52px,8.6vw,124px);line-height:.94;letter-spacing:-.02em;margin-bottom:32px}
+.hero h1 span{display:block}
+.hero .lead{color:var(--stage-muted);margin-bottom:36px}
+.hero .btn-p{background:var(--powder);color:var(--ink)}
+.hero .btn-p:hover{background:var(--blush)}
+.hero .btn-o{border-color:rgba(251,241,239,.6);color:var(--powder)}
+.hero .btn-o:hover{background:var(--powder);color:var(--ink)}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-photo{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:62% 50%;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 60%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0,#000 10%,#000 60%,transparent 100%)}
+.hero-photo + .w{margin-top:-96px}
+.motto{margin-top:clamp(56px,7vw,80px);padding-top:26px;border-top:1px solid var(--stage-hair);display:grid;gap:14px}
+.motto p{font:italic 500 clamp(26px,3vw,38px)/1.15 var(--serif);max-width:24ch}
+.motto small{font-size:13px;color:var(--stage-muted);max-width:34ch}
+@media (min-width:900px){
+  .hero-photo{position:absolute;top:0;right:0;width:60%;height:100%;aspect-ratio:auto;object-position:66% 40%;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 40%),linear-gradient(to bottom,transparent 0,#000 14%,#000 80%,transparent 100%);
+    -webkit-mask-composite:source-in;
+    mask-image:linear-gradient(to right,transparent 0,#000 40%),linear-gradient(to bottom,transparent 0,#000 14%,#000 80%,transparent 100%);
+    mask-composite:intersect}
+  .hero-photo + .w{margin-top:0}
+  .hero > .w{min-height:clamp(680px,62vw,880px);display:flex;flex-direction:column}
+  .hero-txt,.motto{max-width:50%}
+  .hero-txt{margin-bottom:56px}
+  .motto{margin-top:auto}
+}
+
+/* 01 подход */
+.manifest blockquote{margin:0;font:500 clamp(30px,4.2vw,56px)/1.12 var(--serif);letter-spacing:-.01em;max-width:24em;text-wrap:pretty}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:48px;border-top:1px solid var(--hair)}
+.trio div{padding:20px 14px 0 0}
+.trio div + div{padding-left:clamp(12px,2.6vw,28px);border-left:1px solid var(--hair)}
+.trio b{display:block;font:500 clamp(24px,3vw,36px)/1.05 var(--serif);margin-bottom:6px}
+.trio span{font-size:13.5px;color:var(--muted);line-height:1.45;display:block}
+
+/* 02 опыт */
+.exp-top{display:grid;gap:24px;margin-bottom:48px}
+@media (min-width:900px){.exp-top{grid-template-columns:1fr 1fr;align-items:end}}
+.bb svg{display:block;width:100%;height:auto;overflow:visible}
+.bb .plate{transition:transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i) * 90ms)}
+.bb.pre .pl{transform:translateX(-80px)}
+.bb.pre .pr{transform:translateX(80px)}
+.bb-l{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:26px;border-top:1px solid var(--hair);padding-top:20px}
+.bb-l b{display:block;font:500 clamp(34px,4.6vw,58px)/1 var(--serif);margin-bottom:6px}
+.bb-l span{font-size:14px;color:var(--muted)}
+.bb-l .r{text-align:right}
+
+/* 03 направления */
+.dir-top{display:grid;gap:24px;margin-bottom:44px}
+@media (min-width:900px){.dir-top{grid-template-columns:1fr 1fr;align-items:end}}
+.idx{border-top:1px solid var(--ink)}
+.idx-row{display:grid;gap:10px 40px;padding:clamp(22px,2.8vw,32px) 0;border-bottom:1px solid var(--hair)}
+@media (min-width:860px){.idx-row{grid-template-columns:1.15fr .85fr;align-items:baseline}}
+.idx-row h3{font-size:clamp(28px,3.6vw,46px);line-height:1.02}
+.idx-row p{color:var(--muted);max-width:42ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.tags span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--wine)}
+.tags span + span::before{content:"·";margin-right:8px}
+
+/* 04 ведение */
+.pack-grid{display:grid;gap:44px}
+@media (min-width:900px){.pack-grid{grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}}
+.pack h2{margin-bottom:18px}
+.list{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.list li{display:grid;grid-template-columns:28px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid var(--hair);font-size:17px}
+.list li::before{content:"";width:9px;height:9px;margin-top:.55em;border-radius:50%;border:1px solid var(--wine)}
+.day{margin-top:40px}
+.day-h{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:16px}
+.day-h b{font:500 clamp(40px,5vw,64px)/1 var(--serif)}
+.day-h b i{color:var(--wine)}
+.day-h span{font-size:14px;color:var(--muted);text-align:right;max-width:24ch}
+.hours{display:grid;grid-template-columns:repeat(25,1fr);gap:3px}
+.hours i{height:36px;border-radius:3px;background:var(--blush)}
+.hours i:last-child{background:var(--wine)}
+.hours-l{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.hours-l b{color:var(--wine);font-weight:600}
+
+/* 05 тарифы */
+.tar-grid{display:grid;gap:48px}
+@media (min-width:960px){.tar-grid{grid-template-columns:.8fr 1.2fr;gap:80px;align-items:start}}
+.tar h2{margin-bottom:18px}
+.hint{margin-top:24px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.wallet{min-width:0;max-width:560px;width:100%}
+.ticket{display:grid;grid-template-columns:1fr auto;border:1px solid var(--wine);border-radius:22px;text-decoration:none;margin-bottom:30px;transition:background .3s}
+.ticket:hover{background:var(--blush)}
+.t-main{padding:22px 26px;min-width:0}
+.t-main small{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.t-main b{font:italic 500 clamp(28px,4vw,38px)/1.05 var(--serif);color:var(--wine)}
+.t-stub{position:relative;display:flex;align-items:center;padding:0 24px;border-left:1px dashed var(--wine);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;white-space:nowrap;color:var(--wine)}
+.t-stub::before,.t-stub::after{content:"";position:absolute;left:-11px;width:20px;height:20px;border-radius:50%;background:var(--powder);border:1px solid var(--wine)}
+.t-stub::before{top:-11px;clip-path:inset(50% 0 0 0)}
+.t-stub::after{bottom:-11px;clip-path:inset(0 0 50% 0)}
+.stack{display:flex;flex-direction:column}
+.card{position:relative;border-radius:24px;background:var(--cb);color:var(--ci);box-shadow:0 -12px 28px rgba(43,15,24,.16);overflow:hidden}
+.card + .card{margin-top:-44px}
+.card::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:1px solid var(--cl);pointer-events:none}
+.c1{--cb:var(--blush);--ci:var(--ink);--cl:rgba(122,31,52,.22);z-index:1}
+.c2{--cb:var(--wine);--ci:var(--powder);--cl:rgba(251,241,239,.22);z-index:2}
+.c3{--cb:var(--ink);--ci:var(--powder);--cl:rgba(251,241,239,.18);z-index:3}
+.card-h{position:relative;z-index:1;display:block;width:100%;min-height:192px;padding:22px 28px 0;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer}
+.card.open .card-h{min-height:0;padding-bottom:4px}
+.c-top{display:flex;justify-content:space-between;gap:12px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;opacity:.75}
+.c-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:14px}
+.c-name{font:500 clamp(32px,4.6vw,44px)/1 var(--serif)}
+.c-price{font:500 clamp(26px,3.6vw,36px)/1 var(--serif);white-space:nowrap}
+.c-price small{font:500 12px var(--sans);opacity:.7;margin-left:4px}
+.more{position:relative;z-index:1;display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .4s cubic-bezier(.2,.7,.2,1),visibility 0s .4s}
+.card.open .more{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .4s cubic-bezier(.2,.7,.2,1)}
+.more > div{overflow:hidden;min-height:0}
+.more-in{padding:18px 28px 28px}
+.card:not(:last-child) .more-in{padding-bottom:68px}
+.more-in p,.more-in li{font-size:15.5px;opacity:.92}
+.more-in ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.more-in li{padding-left:20px;position:relative}
+.more-in li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;border:1px solid currentColor}
+.more-in .note{margin-top:14px;font-size:13px;opacity:.75}
+.c-cta{display:inline-flex;align-items:center;min-height:48px;margin-top:22px;padding:12px 24px;border-radius:999px;border:1px solid currentColor;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background .3s,color .3s}
+.c-cta:hover{background:var(--ci);color:var(--cb)}
+
+.fmt{margin-bottom:22px}
+[hidden]{display:none!important}
+@media (max-width:600px){.t-main{padding:18px 18px}.t-stub{padding:0 16px;letter-spacing:.1em}}
+
+/* 06 где и с кем */
+.two{display:grid;gap:64px}
+@media (min-width:900px){.two{grid-template-columns:1fr 1fr;gap:80px}}
+.two h2{font-size:clamp(36px,4.4vw,56px);margin-bottom:30px}
+.edu .row{display:grid;grid-template-columns:92px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--hair)}
+.edu .row:last-child{border-bottom:1px solid var(--hair)}
+.edu .k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--wine);padding-top:8px}
+.edu .v{font:500 clamp(22px,2.4vw,27px)/1.2 var(--serif);min-width:0}
+.edu .v small{display:block;font:400 14px var(--sans);color:var(--muted);margin-top:4px}
+.addr{border-top:1px solid var(--ink);padding-top:26px}
+.addr .city{font:italic 500 clamp(44px,5.4vw,68px)/1 var(--serif);color:var(--wine);margin-bottom:12px}
+.addr p{font:500 26px/1.25 var(--serif);margin-bottom:28px}
+
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:36px}
+.rev-slot{margin:0;aspect-ratio:3/4;background:var(--blush);border-radius:20px;display:grid;place-items:center;color:var(--muted);font-size:13px}
+
+/* финал: цель */
+.goal{background:var(--wine);color:var(--powder)}
+.goal > .w::before{background:rgba(251,241,239,.25);bottom:auto;height:calc(clamp(64px,9vw,120px) + 9px)}
+.goal > .w::after{display:none}
+.goal .mark{color:var(--blush)}
+.goal .mark span{color:rgba(251,241,239,.7)}
+.goal .mark::before{background:var(--powder);border-color:var(--powder);width:15px;height:15px;margin-top:-7.5px;left:calc(var(--rail) * -1 - 2px)}
+.goal h2{font-size:clamp(54px,10vw,150px);line-height:.9;letter-spacing:-.03em;margin-bottom:28px}
+.goal h2 em{color:var(--blush)}
+.goal .lead{color:rgba(251,241,239,.78);margin-bottom:52px}
+.links a{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:26px 0;border-top:1px solid rgba(251,241,239,.24);text-decoration:none}
+.links a:last-child{border-bottom:1px solid rgba(251,241,239,.24)}
+.links small{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--blush);margin-bottom:8px}
+.links .h{font:500 clamp(26px,4.2vw,50px)/1 var(--serif);overflow-wrap:anywhere}
+.links .ar{width:54px;height:54px;flex:none;border:1px solid rgba(251,241,239,.4);border-radius:50%;display:grid;place-items:center;font-size:20px;transition:background .3s,color .3s}
+.links a:hover .ar{background:var(--powder);color:var(--wine)}
+.goal :focus-visible{outline-color:var(--powder)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:56px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(251,241,239,.6)}
+
+@media (max-width:600px){
+  .mark{font-size:10.5px;letter-spacing:.18em;gap:10px}
+  .mark::before{width:9px;height:9px;margin-top:-4.5px;left:calc(var(--rail) * -1 + 1px)}
+  .goal .mark::before{width:13px;height:13px;margin-top:-6.5px;left:calc(var(--rail) * -1 - 1px)}
+  .trio{grid-template-columns:1fr}
+  .trio div,.trio div + div{padding:16px 0;border-left:0;border-bottom:1px solid var(--hair)}
+  .hours{gap:2px}
+  .hours i{height:28px}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .step > .w::after,.bb .plate,.more,.mark::before{transition:none!important}
+}
+
+/* 05 результаты: журнальный разворот до/после */
+#reviews h2{margin-bottom:18px}
+.ctrl{display:flex;flex-wrap:wrap;gap:18px 36px;margin:36px 0 22px}
+.grp{display:flex;flex-direction:column;gap:9px;min-width:0}
+.grp small{font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--ink);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:none;cursor:pointer;min-height:40px;padding:9px 18px;border-radius:999px;font:600 12px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;transition:background .25s,color .25s}
+.seg button:hover{background:var(--blush)}
+.seg button[aria-pressed="true"]{background:var(--wine);color:var(--powder)}
+
+/* стол и книга */
+.stage{background:var(--blush);border-radius:28px;padding:clamp(28px,5vw,64px) clamp(14px,4vw,52px)}
+.book{--s:56px;transition:--s .35s ease;position:relative;display:grid;grid-template-columns:1fr 1fr;max-width:940px;margin-inline:auto;perspective:3400px;box-shadow:0 40px 70px -40px rgba(43,15,24,.5)}
+.book.peek{--s:92px}
+.book.nudge:not(.flipped):not(.peek){animation:rvnudge 1.5s ease-in-out .5s 2}
+@keyframes rvnudge{0%,100%{--s:56px}50%{--s:96px}}
+.pg{position:relative;background:var(--paper);padding:clamp(10px,1.6vw,18px) clamp(10px,1.6vw,18px) 0;display:flex;flex-direction:column;min-width:0}
+.pg.l{border-radius:6px 0 0 6px}
+.pg.r{border-radius:0 6px 6px 0}
+.pg.l::after,.pg.r::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit}
+.pg.l::after{background:linear-gradient(to left,rgba(43,15,24,.12),transparent 12%)}
+.pg.r::after{background:linear-gradient(to right,rgba(43,15,24,.12),transparent 12%)}
+.ph{aspect-ratio:3/4;overflow:hidden;background:var(--blush)}
+.ph img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:opacity .2s}
+.book[data-c="1"] .ph img{object-position:50% 34%}
+.ph img.sw{opacity:0}
+.cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 2px 16px;min-height:58px}
+.cap b{font:italic 500 clamp(24px,3vw,34px)/1 var(--serif);color:var(--wine)}
+.cap span{font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+.intro{justify-content:space-between;padding:clamp(20px,3vw,40px)}
+.kick{font:600 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.big{font:500 clamp(48px,6vw,84px)/.95 var(--serif);letter-spacing:-.02em}
+.intro .rv-foot{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.chip{display:inline-block;border:1px solid var(--wine);border-radius:999px;padding:5px 14px;font:600 11px/1.2 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--wine)}
+.rv-hint-t{font-size:14px;color:var(--muted)}
+
+.shadeCorner{position:absolute;right:0;bottom:0;width:var(--s);height:var(--s);clip-path:polygon(100% 0,100% 100%,0 100%);background:linear-gradient(135deg,rgba(43,15,24,.34),rgba(43,15,24,0) 70%);pointer-events:none;z-index:2}
+
+.leaf{position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform-style:preserve-3d;transition:transform 1.15s cubic-bezier(.65,.05,.25,1);z-index:3;pointer-events:none}
+.book.flipped .leaf{transform:rotateY(-180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.face.front{clip-path:polygon(0 0,100% 0,100% calc(100% - var(--s)),calc(100% - var(--s)) 100%,0 100%)}
+.face.back{transform:rotateY(180deg)}
+.front .cap{padding-right:104px}
+.curl{position:absolute;bottom:0;width:var(--s);height:var(--s);z-index:2}
+.front .curl{right:0;clip-path:polygon(0 0,100% 0,0 100%);background:linear-gradient(135deg,#FFF6F3 0%,#E8CACA 70%,#D6B2B3 100%)}
+.shade{position:absolute;inset:0;background:var(--ink);pointer-events:none;z-index:1}
+.front .shade{opacity:0;transition:opacity .55s ease .55s}
+.book.flipped .front .shade{opacity:.42;transition:opacity .55s ease 0s}
+.back .shade{opacity:.42;transition:opacity .55s ease 0s}
+.book.flipped .back .shade{opacity:0;transition:opacity .55s ease .55s}
+
+.hit{position:absolute;top:0;left:50%;width:50%;height:100%;z-index:6;background:transparent;border:0;padding:0;cursor:pointer;border-radius:0 6px 6px 0}
+.book.flipped .hit{left:0;border-radius:6px 0 0 6px}
+.hit:focus-visible{outline-offset:6px}
+
+/* под книгой */
+.below{display:grid;gap:20px 40px;align-items:center;margin-top:28px;grid-template-columns:auto minmax(0,1fr) auto}
+.nm{font:500 clamp(26px,3vw,34px)/1.1 var(--serif)}
+.tm{margin-top:8px;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.q{margin:0;font:italic 500 clamp(22px,2.6vw,30px)/1.25 var(--serif);color:var(--muted);max-width:32ch}
+.go{min-height:54px;padding:14px 28px;border:0;border-radius:999px;background:var(--wine);color:var(--powder);font:600 12.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .3s;white-space:nowrap}
+.go:hover{background:var(--ink)}
+
+@media (max-width:760px){
+  .book{grid-template-columns:1fr;max-width:440px}
+  .intro{display:none}
+  .leaf{left:0;width:100%}
+  .book.flipped .leaf{opacity:0;transition:transform 1.15s cubic-bezier(.65,.05,.25,1),opacity .3s ease .85s}
+  .hit,.book.flipped .hit{left:0;width:100%;border-radius:6px}
+  .pg.r,.pg.l{border-radius:6px}
+  .stage{overflow:clip}
+  .below{grid-template-columns:1fr}
+  .go{justify-self:start}
+}
+@media (prefers-reduced-motion: reduce){
+  .book,.leaf,.shade,.ph img{transition:none!important}
+  .book.nudge{animation:none!important}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="in">
+    <a class="logo" href="#top">Валерия <i>онлайн</i></a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#approach">Подход</a>
+      <a href="#directions">Направления</a>
+      <a href="#reviews">Результаты</a>
+      <a href="#tariffs">Тарифы</a>
+      <a href="#goal">Контакты</a>
+    </nav>
+    <a class="btn btn-o" href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener">Написать</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="step first hero">
+  <img class="hero-photo" fetchpriority="high" src="img/45816c7832.jpg" alt="Валерия, фитнес-тренер, на песке в студии" width="1080" height="1350">
+  <div class="w">
+    <p class="mark"><b>Старт</b><span>Женский фитнес-тренер · Новосибирск</span></p>
+    <div class="hero-txt">
+      <h1><span>Сочные формы</span><span>и <em>любовь</em> к себе</span></h1>
+      <p class="lead">Помогаю девушкам выстроить тело без крайностей через понятную систему тренировок, питания и дисциплины.</p>
+      <div class="ctas">
+        <a class="btn btn-p" href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener">Пробная бесплатно</a>
+        <a class="btn btn-o" href="#tariffs">Тарифы</a>
+      </div>
+    </div>
+    <div class="motto">
+      <p>«Придерживаясь моего плана, приведу к цели»</p>
+      <small>Ниже весь план по шагам: от подхода до первой тренировки.</small>
+    </div>
+  </div>
+</section>
+
+<section id="approach" class="step manifest">
+  <div class="w">
+    <p class="mark"><b>01</b><span>Подход</span></p>
+    <blockquote>Моя задача — не просто дать весь материал, которым я обладаю, а <em>научить понимать своё тело</em>, чтобы результат был стабильным и долгосрочным.</blockquote>
+    <div class="trio">
+      <div><b>Тренировки</b><span>понятная система без крайностей</span></div>
+      <div><b>Питание</b><span>без жёстких ограничений</span></div>
+      <div><b>Дисциплина</b><span>развиваем её вместе</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="step">
+  <div class="w">
+    <p class="mark"><b>02</b><span>Опыт</span></p>
+    <div class="exp-top">
+      <h2>Десять лет <em>под грифом</em></h2>
+      <p class="lead">Действующий фитнес-тренер. До профессии ещё пять лет личных тренировок, поэтому путь клиентки я знаю изнутри.</p>
+    </div>
+    <div class="bb" id="bb">
+      <svg viewBox="0 0 900 220" role="img" aria-labelledby="bbt">
+        <title id="bbt">Штанга: пять блинов личных тренировок и пять блинов работы тренером</title>
+        <rect x="20" y="106" width="860" height="8" rx="4" fill="#2B0F18" opacity=".55"/>
+        <rect x="150" y="96" width="5" height="28" rx="2" fill="#2B0F18" opacity=".55"/>
+        <rect x="745" y="96" width="5" height="28" rx="2" fill="#2B0F18" opacity=".55"/>
+        <g class="plate pl" style="--i:4"><rect x="160" y="68" width="18" height="84" rx="5" fill="#E2B4B5"/></g>
+        <g class="plate pl" style="--i:3"><rect x="184" y="56" width="18" height="108" rx="5" fill="#E2B4B5"/></g>
+        <g class="plate pl" style="--i:2"><rect x="208" y="44" width="18" height="132" rx="5" fill="#E2B4B5"/></g>
+        <g class="plate pl" style="--i:1"><rect x="232" y="30" width="18" height="160" rx="5" fill="#E2B4B5"/></g>
+        <g class="plate pl" style="--i:0"><rect x="256" y="16" width="18" height="188" rx="5" fill="#E2B4B5"/></g>
+        <g class="plate pr" style="--i:0"><rect x="626" y="16" width="18" height="188" rx="5" fill="#7A1F34"/></g>
+        <g class="plate pr" style="--i:1"><rect x="650" y="30" width="18" height="160" rx="5" fill="#7A1F34"/></g>
+        <g class="plate pr" style="--i:2"><rect x="674" y="44" width="18" height="132" rx="5" fill="#7A1F34"/></g>
+        <g class="plate pr" style="--i:3"><rect x="698" y="56" width="18" height="108" rx="5" fill="#7A1F34"/></g>
+        <g class="plate pr" style="--i:4"><rect x="722" y="68" width="18" height="84" rx="5" fill="#7A1F34"/></g>
+      </svg>
+      <div class="bb-l">
+        <div><b>5 лет</b><span>личных тренировок</span></div>
+        <div class="r"><b>5 лет</b><span>работы фитнес-тренером</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="directions" class="step">
+  <div class="w">
+    <p class="mark"><b>03</b><span>Направления</span></p>
+    <div class="dir-top">
+      <h2>Разные методики, <em>один план</em></h2>
+      <p class="lead">Моя специализация — комбинация различных методик и направлений в тренировочном процессе.</p>
+    </div>
+    <div class="idx">
+      <div class="idx-row"><h3>Силовой и функциональный тренинг</h3><div><p>Тренировки на основе бодибилдинга, пауэрлифтинга и других силовых дисциплин.</p><div class="tags"><span>бодибилдинг</span><span>пауэрлифтинг</span></div></div></div>
+      <div class="idx-row"><h3>Гибкость и подвижность</h3><div><p>Развитие гибкости и подвижности суставов по методике пилатеса и растяжки.</p><div class="tags"><span>пилатес</span><span>растяжка</span></div></div></div>
+      <div class="idx-row"><h3>Реабилитация</h3><div><p>На основе ограничений и особенностей клиента.</p></div></div>
+      <div class="idx-row"><h3>Нутрициология</h3><div><p>Грамотный подход в построении рациона питания, без жёстких ограничений.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="step pack">
+  <div class="w">
+    <p class="mark"><b>04</b><span>Онлайн-ведение</span></p>
+    <div class="pack-grid">
+      <div>
+        <h2>Что входит <em>в месяц</em></h2>
+        <p class="lead">Работа с питанием включена в пакет в обязательном порядке.</p>
+      </div>
+      <div>
+        <ul class="list">
+          <li>Тренировочный протокол под ваш запрос</li>
+          <li>Подробная техника упражнений в видео и письменном формате</li>
+          <li>План питания под необходимый запрос</li>
+          <li>Связь в удобных для вас мессенджерах: Telegram, Max и другие</li>
+          <li>Созвон раз в неделю</li>
+        </ul>
+        <div class="day" role="img" aria-label="Сутки из 25 часов: на связи 25 на 7">
+          <div class="day-h"><b>25<i>/7</i></b><span>Столько я на связи. В сутках у меня на один час больше.</span></div>
+          <div class="hours" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="hours-l" aria-hidden="true"><span>00:00</span><span>12:00</span><span>24:00 <b>+1 ч</b></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="step">
+  <div class="w">
+    <p class="mark"><b>05</b><span>Результаты</span></p>
+    <h2>Было <em>и стало</em></h2>
+    <p class="lead">Нажмите на загнутый уголок страницы, чтобы перевернуть её и увидеть результат.</p>
+    <div class="ctrl">
+    <div class="grp"><small>Клиентка</small>
+      <div class="seg" id="segC"><button type="button" data-client="0" aria-pressed="true">Клиентка 1</button><button type="button" data-client="1" aria-pressed="false">Клиентка 2</button></div>
+    </div>
+    <div class="grp"><small>Ракурс</small>
+      <div class="seg" id="segA"><button type="button" data-angle="0" aria-pressed="true">Спереди</button><button type="button" data-angle="1" aria-pressed="false">Сбоку</button><button type="button" data-angle="2" aria-pressed="false">Сзади</button></div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="book" id="book" data-c="0">
+      <section class="pg l intro" aria-label="О результате">
+        <p class="kick" id="kick">Клиентка 1</p>
+        <p class="big">Было<br><em>и стало</em></p>
+        <div class="rv-foot"><span class="rv-hint-t">Переверните страницу справа →</span></div>
+      </section>
+      <section class="pg r" aria-label="Стало">
+        <div class="ph"><img id="imgA" alt=""></div>
+        <div class="cap"><b>Стало</b><span id="capA">Спереди</span></div>
+        <span class="shadeCorner" aria-hidden="true"></span>
+      </section>
+      <button class="hit" id="hit" type="button" aria-label="Перевернуть страницу, чтобы увидеть результат"></button>
+      <div class="leaf" id="leaf">
+        <div class="face front pg r">
+          <div class="ph"><img id="imgF" alt=""></div>
+          <div class="cap"><b>Было</b><span id="capF">Спереди</span></div>
+          <span class="shade" aria-hidden="true"></span><span class="curl" aria-hidden="true"></span>
+        </div>
+        <div class="face back pg l" aria-hidden="true">
+          <div class="ph"><img id="imgB" alt=""></div>
+          <div class="cap"><b>Было</b><span id="capB">Спереди</span></div>
+          <span class="shade"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="below">
+    <div><p class="nm" id="nm">Клиентка 1</p></div>
+    <blockquote class="q">Здесь будет отзыв клиентки её словами.</blockquote>
+    <button class="go" id="go" type="button">Показать результат</button>
+  </div>
+  </div>
+</section>
+
+<section id="tariffs" class="step tar">
+  <div class="w">
+    <p class="mark"><b>06</b><span>Тарифы</span></p>
+    <div class="tar-grid">
+      <div>
+        <h2>Выберите <em>свой формат</em></h2>
+        <p class="lead">Онлайн из любого города или в зале в Новосибирске. Первая пробная тренировка бесплатно.</p>
+        <p class="hint">Нажмите на карточку</p>
+      </div>
+      <div class="wallet">
+        <div class="seg fmt" id="segF" role="group" aria-label="Формат"><button type="button" data-f="on" aria-pressed="true">Онлайн</button><button type="button" data-f="off" aria-pressed="false">В зале</button></div>
+        <a class="ticket" href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener">
+          <span class="t-main"><small>Первая пробная тренировка</small><b>Бесплатно</b></span>
+          <span class="t-stub">Записаться →</span>
+        </a>
+        <div class="stack" id="stOn">
+          <article class="card c1">
+            <button class="card-h" type="button" aria-expanded="false" aria-controls="m1">
+              <span class="c-top"><span>Валерия онлайн</span><span>1 месяц</span></span>
+              <span class="c-row"><span class="c-name">Программа</span><span class="c-price">6 000<small>₽</small></span></span>
+            </button>
+            <div class="more" id="m1"><div><div class="more-in">
+              <p>Расписываю программу на месяц с детальным объяснением и прикрепляю видео техники.</p>
+              <a class="c-cta" href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener">Выбрать →</a>
+            </div></div></div>
+          </article>
+          <article class="card c2 open">
+            <button class="card-h" type="button" aria-expanded="true" aria-controls="m2">
+              <span class="c-top"><span>Валерия онлайн</span><span>1 месяц</span></span>
+              <span class="c-row"><span class="c-name">Ведение</span><span class="c-price">10 000<small>₽</small></span></span>
+            </button>
+            <div class="more" id="m2"><div><div class="more-in">
+              <ul>
+                <li>Тренировочный протокол под ваш запрос</li>
+                <li>Техника упражнений в видео и тексте</li>
+                <li>План питания под необходимый запрос</li>
+                <li>Связь 25/7 в мессенджерах</li>
+                <li>Созвон раз в неделю</li>
+              </ul>
+              <p class="note">Работа с питанием включена обязательно.</p>
+              <a class="c-cta" href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener">Выбрать →</a>
+            </div></div></div>
+          </article>
+          <article class="card c3">
+            <button class="card-h" type="button" aria-expanded="false" aria-controls="m3">
+              <span class="c-top"><span>Валерия онлайн</span><span>1 месяц</span></span>
+              <span class="c-row"><span class="c-name">Питание</span><span class="c-price">4 000<small>₽</small></span></span>
+            </button>
+            <div class="more" id="m3"><div><div class="more-in">
+              <p>Программа питания на месяц и ведение по питанию.</p>
+              <a class="c-cta" href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener">Выбрать →</a>
+            </div></div></div>
+          </article>
+        </div>
+        <div class="stack" id="stOff" hidden>
+          <article class="card c1">
+            <button class="card-h" type="button" aria-expanded="false" aria-controls="m4">
+              <span class="c-top"><span>Валерия в зале</span><span>ТЦ «Юпитер»</span></span>
+              <span class="c-row"><span class="c-name">Сдвоенные</span><span class="c-price">9 000<small>₽</small></span></span>
+            </button>
+            <div class="more" id="m4"><div><div class="more-in">
+              <ul>
+                <li>Сдвоенные тренировки</li>
+                <li>Вечерние часы с 18:00 до 21:00</li>
+                <li>Работа с питанием</li>
+              </ul>
+              <a class="c-cta" href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener">Выбрать →</a>
+            </div></div></div>
+          </article>
+          <article class="card c2 open">
+            <button class="card-h" type="button" aria-expanded="true" aria-controls="m5">
+              <span class="c-top"><span>Валерия в зале</span><span>ТЦ «Юпитер»</span></span>
+              <span class="c-row"><span class="c-name">Полный пакет</span><span class="c-price">11 000<small>₽</small></span></span>
+            </button>
+            <div class="more" id="m5"><div><div class="more-in">
+              <ul>
+                <li>Тренировки в зале 3–4 раза в неделю</li>
+                <li>Работа с питанием</li>
+              </ul>
+              <p class="note">Новосибирск, ТЦ «Юпитер», Гоголя, 15.</p>
+              <a class="c-cta" href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener">Выбрать →</a>
+            </div></div></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="address" class="step">
+  <div class="w">
+    <p class="mark"><b>07</b><span>Где и с кем</span></p>
+    <div class="two">
+      <div class="edu">
+        <h2>Дипломы <em>и курсы</em></h2>
+        <div class="row"><div class="k">Диплом</div><div class="v">Обучающий центр «Апельсин»</div></div>
+        <div class="row"><div class="k">Диплом</div><div class="v">Национальная Академия Фитнес-Тренеров</div></div>
+        <div class="row"><div class="k">Семинар</div><div class="v">Дмитрий Никифоров<small>6 часов</small></div></div>
+        <div class="row"><div class="k">Курсы</div><div class="v">Реабилитация</div></div>
+      </div>
+      <div>
+        <h2>Где меня <em>найти</em></h2>
+        <div class="addr">
+          <p class="city">Новосибирск</p>
+          <p>ТЦ «Юпитер», Гоголя, 15</p>
+          <a class="btn btn-p" href="https://2gis.ru/novosibirsk/search/%D0%A2%D0%A6%20%D0%AE%D0%BF%D0%B8%D1%82%D0%B5%D1%80%20%D0%93%D0%BE%D0%B3%D0%BE%D0%BB%D1%8F%2015" target="_blank" rel="noopener">Маршрут в 2ГИС</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="goal" class="step goal">
+  <div class="w">
+    <p class="mark"><b>Цель</b><span>Первый шаг</span></p>
+    <h2>Приведу <em>к цели</em></h2>
+    <p class="lead">Первая пробная тренировка бесплатно. Напишите, расскажите о своей цели, и я подберу формат.</p>
+    <div class="links">
+      <a href="https://t.me/LERCHIK_FITNESS" target="_blank" rel="noopener"><span><small>Telegram</small><span class="h">@LERCHIK_FITNESS</span></span><span class="ar" aria-hidden="true">→</span></a>
+      <a href="https://www.instagram.com/f.dora_lerchek_/" target="_blank" rel="noopener"><span><small>Instagram</small><span class="h">@f.dora_lerchek_</span></span><span class="ar" aria-hidden="true">→</span></a>
+    </div>
+    <div class="foot"><span>Валерия онлайн · Новосибирск</span><span>design by youngmoneybae</span></div>
+  </div>
+</section>
+</main>
+
+<script>
+(function(){
+  var cards=[].slice.call(document.querySelectorAll('.card'));
+  cards.forEach(function(c){
+    var b=c.querySelector('.card-h');
+    b.addEventListener('click',function(){
+      var was=c.classList.contains('open');
+      cards.forEach(function(x){x.classList.remove('open');x.querySelector('.card-h').setAttribute('aria-expanded','false');});
+      if(!was){c.classList.add('open');b.setAttribute('aria-expanded','true');}
+    });
+  });
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  if(!('IntersectionObserver' in window)){steps.forEach(function(s){s.classList.add('seen');});}
+  else{
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target);}});},{rootMargin:'0px 0px -35% 0px'});
+    steps.forEach(function(s){io.observe(s);});
+  }
+  var bb=document.getElementById('bb');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(bb&&'IntersectionObserver' in window&&!reduce&&bb.getBoundingClientRect().top>window.innerHeight*0.9){
+    bb.classList.add('pre');
+    var io2=new IntersectionObserver(function(e){if(e[0].isIntersecting){bb.classList.remove('pre');io2.disconnect();}},{threshold:0.3});
+    io2.observe(bb);
+  }
+})();
+</script>
+<script>
+(function(){
+  var IMG=[{"b": {"side": "img/35cdbf7417.jpg", "front": "img/f58034aef8.jpg", "back": "img/b816797fe1.jpg"}, "a": {"back": "img/599ea7ebd8.jpg", "side": "img/6093a68ced.jpg", "front": "img/aaecbc0df3.jpg"}}, {"b": {"back": "img/2ed9893335.jpg", "side": "img/dc52d3e8bd.jpg", "front": "img/bf7ca4af5c.jpg"}, "a": {"back": "img/bc8a9f9aeb.jpg", "side": "img/71c0fc82da.jpg", "front": "img/0859d9f1f1.jpg"}}];
+  var ANG=['front','side','back'],LAB=['Спереди','Сбоку','Сзади'],NAMES=['Клиентка 1','Клиентка 2'];
+  var c=0,a=0,flipped=false;
+  function $(id){return document.getElementById(id)}
+  var book=$('book'),hit=$('hit'),go=$('go');
+  var imgs=[$('imgF'),$('imgB'),$('imgA')];
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function paint(){
+    var k=ANG[a];
+    $('imgF').src=IMG[c].b[k];$('imgB').src=IMG[c].b[k];$('imgA').src=IMG[c].a[k];
+    $('imgF').alt='Было: '+NAMES[c]+', '+LAB[a].toLowerCase();
+    $('imgA').alt='Стало: '+NAMES[c]+', '+LAB[a].toLowerCase();
+    ['capF','capB','capA'].forEach(function(id){$(id).textContent=LAB[a]});
+    $('kick').textContent=NAMES[c];$('nm').textContent=NAMES[c];
+    book.setAttribute('data-c',c);
+  }
+  function swap(){
+    if(reduce){paint();return}
+    imgs.forEach(function(i){i.classList.add('sw')});
+    setTimeout(function(){paint();requestAnimationFrame(function(){imgs.forEach(function(i){i.classList.remove('sw')})})},200);
+  }
+  function setFlip(v){
+    flipped=v;book.classList.toggle('flipped',v);book.classList.remove('nudge','peek');
+    hit.setAttribute('aria-label',v?'Вернуть страницу «Было»':'Перевернуть страницу, чтобы увидеть результат');
+    go.textContent=v?'Вернуть «Было»':'Показать результат';
+  }
+  hit.addEventListener('click',function(){setFlip(!flipped)});
+  go.addEventListener('click',function(){setFlip(!flipped)});
+  ['pointerenter','focus'].forEach(function(e){hit.addEventListener(e,function(){book.classList.add('peek')})});
+  ['pointerleave','blur'].forEach(function(e){hit.addEventListener(e,function(){book.classList.remove('peek')})});
+  function seg(id,attr,fn){
+    var bs=[].slice.call(document.querySelectorAll('#'+id+' button'));
+    bs.forEach(function(b){b.addEventListener('click',function(){
+      bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      fn(+b.getAttribute(attr));
+    })});
+  }
+  seg('segC','data-client',function(v){if(v===c)return;c=v;if(flipped)setFlip(false);swap()});
+  seg('segA','data-angle',function(v){if(v===a)return;a=v;swap()});
+  paint();
+  if('IntersectionObserver' in window&&!reduce){
+    var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){book.classList.add('nudge');io.disconnect()}},{threshold:.4});
+    io.observe(book);
+    book.addEventListener('animationend',function(){book.classList.remove('nudge')});
+  }
+})();
+</script>
+<script>
+(function(){
+  var bs=[].slice.call(document.querySelectorAll('#segF button')),on=document.getElementById('stOn'),off=document.getElementById('stOff');
+  bs.forEach(function(b){b.addEventListener('click',function(){
+    bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    var o=b.getAttribute('data-f')==='off';on.hidden=o;off.hidden=!o;
+  })});
+})();
+</script>
+
+</body>
+</html>
