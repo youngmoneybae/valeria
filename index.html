@@ -202,6 +202,29 @@ a{color:inherit}
 [hidden]{display:none!important}
 @media (max-width:600px){.t-main{padding:18px 18px}.t-stub{padding:0 16px;letter-spacing:.1em}}
 
+
+/* 03 мой путь: шторка до/после по прокрутке */
+.vp{display:grid;gap:36px;--fw:min(100%,440px,calc((100vh - 190px) * .75))}
+@media (min-width:900px){.vp{grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}.vp-txt{position:sticky;top:22vh}}
+.vp h2{margin-bottom:18px}
+.vp-hint{margin-top:22px;font:600 11px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--wine)}
+.vp-track{position:relative;height:330vh}
+.vp-stick{position:sticky;top:max(16px,calc((100vh - var(--fw) * 4 / 3 - 72px) / 2));width:var(--fw);margin-inline:auto}
+.vp-frame{position:relative;margin:0;width:100%;aspect-ratio:3/4;border-radius:999px 999px 6px 6px;overflow:hidden;background:var(--blush);box-shadow:0 40px 70px -40px rgba(43,15,24,.5)}
+.vp-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .25s}
+.vp-frame img.sw{opacity:0}
+.vp-a{clip-path:inset(0 calc((1 - var(--p,0)) * 100%) 0 0)}
+.vp-line{position:absolute;top:0;bottom:0;left:calc(var(--p,0) * 100%);width:2px;margin-left:-1px;background:var(--powder);pointer-events:none}
+.vp-line b{position:absolute;top:58%;left:50%;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:var(--wine);color:var(--powder);display:grid;place-items:center;font:500 16px/1 var(--sans);letter-spacing:.1em;box-shadow:0 6px 18px rgba(43,15,24,.35)}
+.vp-tag{position:absolute;bottom:16px;padding:6px 12px;border-radius:999px;background:rgba(43,15,24,.62);color:var(--powder);font:600 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;transition:opacity .3s}
+.vp-tag.l{left:14px;opacity:calc(var(--p,0) * 1.6)}
+.vp-tag.r{right:14px;opacity:calc((1 - var(--p,0)) * 1.6)}
+.vp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.vp-steps button{display:flex;flex-direction:column;gap:8px;align-items:flex-start;background:none;border:0;padding:4px 0;cursor:pointer;color:var(--muted);font:600 10.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+.vp-steps button[aria-current="true"]{color:var(--wine)}
+.vp-steps i{display:block;width:100%;height:2px;background:var(--hair);position:relative;overflow:hidden}
+.vp-steps i::after{content:"";position:absolute;inset:0;background:var(--wine);transform-origin:left;transform:scaleX(var(--f,0))}
+
 /* 06 где и с кем */
 .two{display:grid;gap:64px}
 @media (min-width:900px){.two{grid-template-columns:1fr 1fr;gap:80px}}
@@ -428,9 +451,37 @@ a{color:inherit}
   </div>
 </section>
 
+<section id="journey" class="step">
+  <div class="w">
+    <p class="mark"><b>03</b><span>Мой путь</span></p>
+    <div class="vp">
+      <div class="vp-txt">
+        <h2>Сначала <em>сама</em></h2>
+        <p class="lead">Прежде чем вести девушек, я пять лет тренировалась сама. Это мой собственный результат.</p>
+        <p class="vp-hint">Листайте вниз: линия сдвигается и открывает «после»</p>
+      </div>
+      <div class="vp-track" id="vpTrack">
+        <div class="vp-stick" id="vpStick">
+          <figure class="vp-frame" id="vpFrame">
+            <img id="vpB" alt="Валерия до, спереди" width="720" height="960">
+            <img id="vpA" class="vp-a" alt="Валерия после, спереди" width="720" height="960">
+            <span class="vp-line" aria-hidden="true"><b>‹ ›</b></span>
+            <span class="vp-tag l" aria-hidden="true">После</span><span class="vp-tag r" aria-hidden="true">До</span>
+          </figure>
+          <div class="vp-steps" id="vpSteps">
+            <button type="button" data-i="0" aria-current="true"><span>Спереди</span><i></i></button>
+            <button type="button" data-i="1"><span>Сбоку</span><i></i></button>
+            <button type="button" data-i="2"><span>Сзади</span><i></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="directions" class="step">
   <div class="w">
-    <p class="mark"><b>03</b><span>Направления</span></p>
+    <p class="mark"><b>04</b><span>Направления</span></p>
     <div class="dir-top">
       <h2>Разные методики, <em>один план</em></h2>
       <p class="lead">Моя специализация — комбинация различных методик и направлений в тренировочном процессе.</p>
@@ -446,7 +497,7 @@ a{color:inherit}
 
 <section class="step pack">
   <div class="w">
-    <p class="mark"><b>04</b><span>Онлайн-ведение</span></p>
+    <p class="mark"><b>05</b><span>Онлайн-ведение</span></p>
     <div class="pack-grid">
       <div>
         <h2>Что входит <em>в месяц</em></h2>
@@ -472,7 +523,7 @@ a{color:inherit}
 
 <section id="reviews" class="step">
   <div class="w">
-    <p class="mark"><b>05</b><span>Результаты</span></p>
+    <p class="mark"><b>06</b><span>Результаты</span></p>
     <h2>Было <em>и стало</em></h2>
     <p class="lead">Нажмите на загнутый уголок страницы, чтобы перевернуть её и увидеть результат.</p>
     <div class="ctrl">
@@ -528,7 +579,7 @@ a{color:inherit}
 
 <section id="tariffs" class="step tar">
   <div class="w">
-    <p class="mark"><b>06</b><span>Тарифы</span></p>
+    <p class="mark"><b>07</b><span>Тарифы</span></p>
     <div class="tar-grid">
       <div>
         <h2>Выберите <em>свой формат</em></h2>
@@ -617,7 +668,7 @@ a{color:inherit}
 
 <section id="address" class="step">
   <div class="w">
-    <p class="mark"><b>07</b><span>Где и с кем</span></p>
+    <p class="mark"><b>08</b><span>Где и с кем</span></p>
     <div class="two">
       <div class="edu">
         <h2>Дипломы <em>и курсы</em></h2>
@@ -736,6 +787,34 @@ a{color:inherit}
     bs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
     var o=b.getAttribute('data-f')==='off';on.hidden=o;off.hidden=!o;
   })});
+})();
+</script>
+<script>
+(function(){
+  var V={"b-front": "img/fb67d8c57a.jpg", "a-front": "img/5d52523907.jpg", "b-side": "img/d82bc46d30.jpg", "a-side": "img/bdb78b6acc.jpg", "b-back": "img/69078121af.jpg", "a-back": "img/1e7485800c.jpg"},ANG=['front','side','back'],LAB=['спереди','сбоку','сзади'];
+  var track=document.getElementById('vpTrack'),stick=document.getElementById('vpStick'),frame=document.getElementById('vpFrame');
+  var iB=document.getElementById('vpB'),iA=document.getElementById('vpA');
+  var bs=[].slice.call(document.querySelectorAll('#vpSteps button'));
+  var seg=-1,ticking=false;
+  function setSeg(n,instant){
+    if(n===seg)return;var first=seg<0;seg=n;
+    function put(){iB.src=V['b-'+ANG[n]];iA.src=V['a-'+ANG[n]];iB.alt='Валерия до, '+LAB[n];iA.alt='Валерия после, '+LAB[n]}
+    if(first||instant){put()}else{iB.classList.add('sw');iA.classList.add('sw');setTimeout(function(){put();requestAnimationFrame(function(){iB.classList.remove('sw');iA.classList.remove('sw')})},160)}
+    bs.forEach(function(b,i){if(i===n)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current')});
+  }
+  function geo(){var top=parseFloat(getComputedStyle(stick).top)||0;var r=track.getBoundingClientRect();return {top:top,r:r,tot:Math.max(1,r.height-stick.offsetHeight)}}
+  function upd(){
+    ticking=false;var g=geo();
+    var t=Math.min(1,Math.max(0,(g.top-g.r.top)/g.tot));
+    var n=Math.min(2,Math.floor(t*3)),loc=Math.min(1,t*3-n);
+    var w=Math.min(1,Math.max(0,(loc-.12)/.7));w=w*w*(3-2*w);
+    setSeg(n);frame.style.setProperty('--p',w.toFixed(4));
+    bs.forEach(function(b,i){b.querySelector('i').style.setProperty('--f',i<n?1:(i===n?w:0))});
+  }
+  function onS(){if(!ticking){ticking=true;requestAnimationFrame(upd)}}
+  window.addEventListener('scroll',onS,{passive:true});window.addEventListener('resize',onS);
+  bs.forEach(function(b,i){b.addEventListener('click',function(){var g=geo();var y=window.scrollY+g.r.top-g.top+g.tot*(i/3+.02);window.scrollTo({top:y,behavior:'smooth'})})});
+  setSeg(0,true);upd();
 })();
 </script>
 
