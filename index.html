@@ -532,7 +532,7 @@ a{color:inherit}
     <p class="lead">Нажмите на загнутый уголок страницы, чтобы перевернуть её и увидеть результат.</p>
     <div class="ctrl">
     <div class="grp"><small>Клиентка</small>
-      <div class="seg" id="segC"><button type="button" data-client="0" aria-pressed="true">Клиентка 1</button><button type="button" data-client="1" aria-pressed="false">Клиентка 2</button><button type="button" data-client="2" aria-pressed="false">Кристина</button></div>
+      <div class="seg" id="segC"><button type="button" data-client="0" aria-pressed="true">Милена</button><button type="button" data-client="1" aria-pressed="false">Женя</button><button type="button" data-client="2" aria-pressed="false">Кристина</button></div>
     </div>
     <div class="grp"><small>Ракурс</small>
       <div class="seg" id="segA"><button type="button" data-angle="0" aria-pressed="true">Спереди</button><button type="button" data-angle="1" aria-pressed="false">Сбоку</button><button type="button" data-angle="2" aria-pressed="false">Сзади</button></div>
@@ -542,7 +542,7 @@ a{color:inherit}
   <div class="stage">
     <div class="book" id="book" data-c="0">
       <section class="pg l intro" aria-label="О результате">
-        <p class="kick" id="kick">Клиентка 1</p>
+        <p class="kick" id="kick">Милена</p>
         <p class="big">Было<br><em>и стало</em></p>
         <div class="rv-foot"><span class="rv-hint-t">Переверните страницу справа →</span></div>
       </section>
@@ -569,8 +569,8 @@ a{color:inherit}
 
   <div class="below">
     <div class="who">
-      <p class="nm" id="nm">Клиентка 1</p>
-      <button class="nmb" id="nmb" type="button" aria-expanded="false" aria-controls="rev" hidden><span id="nmbT">Кристина</span><small>Отзыв</small><i aria-hidden="true">↓</i></button>
+      <p class="nm" id="nm">Милена</p>
+      <button class="nmb" id="nmb" type="button" aria-expanded="false" aria-controls="rev" hidden><span id="nmbT">Милена</span><small>Отзыв</small><i aria-hidden="true">↓</i></button>
     </div>
     <button class="go" id="go" type="button">Показать результат</button>
     <div class="rev" id="rev"><div><div class="rev-in">
@@ -736,7 +736,7 @@ a{color:inherit}
 <script>
 (function(){
   var IMG=[{"b": {"side": "img/6f9529ba30.jpg", "front": "img/816c3b19fd.jpg", "back": "img/a2445774a3.jpg"}, "a": {"back": "img/5d1d505f56.jpg", "side": "img/fe9716128b.jpg", "front": "img/75fb369f97.jpg"}}, {"b": {"front": "img/1171c8dbe3.jpg", "side": "img/07f89dfe31.jpg", "back": "img/7253796350.jpg"}, "a": {"front": "img/1465b592fc.jpg", "side": "img/df9428389e.jpg", "back": "img/927aed36cd.jpg"}}, {"b": {"front": "img/c210f2bea4.jpg", "side": "img/42f0d7ca4f.jpg", "back": "img/74b07aa2b7.jpg"}, "a": {"front": "img/856a8adb1d.jpg", "side": "img/e4d7dddda8.jpg", "back": "img/d216be0b7c.jpg"}}];
-  var ANG=['front','side','back'],LAB=['Спереди','Сбоку','Сзади'],NAMES=['Клиентка 1','Клиентка 2','Кристина'],GEN=['','','Кристины'],REV=['','','Лерочка❤️\nХочу искренне поблагодарить тебя за грамотный подход к тренировкам!\nЯ уже вижу заметный результат и чувствую прогресс)\nОтдельно ценно, что каждое занятие с тобой проходит комфортно🫶\nСпасибо за качественную работу и мотивацию двигаться дальше, ты лучшая в своем деле!💯'];
+  var ANG=['front','side','back'],LAB=['Спереди','Сбоку','Сзади'],NAMES=['Милена','Женя','Кристина'],GEN=['Милены','Жени','Кристины'],REV=['Лера, спасибо за то, что даже онлайн ты умудряешься создать эффект присутствия!❤️\nОчень грамотно составленные программы, всегда на связи и готова ответить на любые вопросы. Чувствую прогресс, спасибо за твой труд и веру в меня!💪','Хочу сказать огромное спасибо Лере за то, что она познакомила меня со спортом и дала реально крутые знания, которые я до сих пор использую в своей жизни.\nЧестно, я всегда думала, что спорт — это не моё, и каждый раз откладывала поход в зал на потом. Сейчас же это то место силы, которое помогает мне выплеснуть все эмоции и построить тело мечты.\nЛера помогла наладить мой режим в питании и составила программу тренировок, которая подходит под мой запрос.\nЯ старалась использовать весь полученный материал и добиться крутого результата.\nЕсли вы хотите наладить питание без загонов и страха съесть лишнее, вам точно к ней!','Лерочка❤️\nХочу искренне поблагодарить тебя за грамотный подход к тренировкам!\nЯ уже вижу заметный результат и чувствую прогресс)\nОтдельно ценно, что каждое занятие с тобой проходит комфортно🫶\nСпасибо за качественную работу и мотивацию двигаться дальше, ты лучшая в своем деле!💯'];
   var c=0,a=0,flipped=false;
   function $(id){return document.getElementById(id)}
   var book=$('book'),hit=$('hit'),go=$('go');
