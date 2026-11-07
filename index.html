@@ -315,6 +315,21 @@ a{color:inherit}
 .q{margin:0;font:italic 500 clamp(22px,2.6vw,30px)/1.25 var(--serif);color:var(--muted);max-width:32ch}
 .go{min-height:54px;padding:14px 28px;border:0;border-radius:999px;background:var(--wine);color:var(--powder);font:600 12.5px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:background .3s;white-space:nowrap}
 .go:hover{background:var(--ink)}
+.below{grid-template-columns:minmax(0,1fr) auto}
+.nmb{display:inline-flex;align-items:baseline;gap:12px;background:none;border:0;padding:4px 0;cursor:pointer;text-align:left;color:var(--ink)}
+.nmb span{font:500 clamp(26px,3vw,34px)/1.1 var(--serif);border-bottom:1px solid var(--wine);padding-bottom:2px}
+.nmb small{font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--wine)}
+.nmb i{font-style:normal;color:var(--wine);transition:transform .35s;display:inline-block}
+.nmb[aria-expanded="true"] i{transform:rotate(180deg)}
+.nmb:hover span{color:var(--wine)}
+.rev{grid-column:1/-1;display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1),visibility 0s .45s}
+.rev.open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1)}
+.rev > div{overflow:hidden;min-height:0}
+.rev-in{background:var(--paper);border-radius:6px 22px 22px 22px;padding:clamp(22px,3vw,36px);box-shadow:0 24px 50px -36px rgba(43,15,24,.45);max-width:720px}
+.rev-h{font:600 10.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--wine);margin-bottom:16px}
+.rev-t{margin:0;font:italic 500 clamp(21px,2.4vw,27px)/1.4 var(--serif);white-space:pre-line;color:var(--ink)}
+@media (prefers-reduced-motion: reduce){.rev,.nmb i{transition:none!important}}
+@media (max-width:600px){.seg button{padding:9px 11px;letter-spacing:.06em;font-size:11px}}
 
 @media (max-width:760px){
   .book{grid-template-columns:1fr;max-width:440px}
@@ -462,7 +477,7 @@ a{color:inherit}
     <p class="lead">Нажмите на загнутый уголок страницы, чтобы перевернуть её и увидеть результат.</p>
     <div class="ctrl">
     <div class="grp"><small>Клиентка</small>
-      <div class="seg" id="segC"><button type="button" data-client="0" aria-pressed="true">Клиентка 1</button><button type="button" data-client="1" aria-pressed="false">Клиентка 2</button></div>
+      <div class="seg" id="segC"><button type="button" data-client="0" aria-pressed="true">Клиентка 1</button><button type="button" data-client="1" aria-pressed="false">Клиентка 2</button><button type="button" data-client="2" aria-pressed="false">Кристина</button></div>
     </div>
     <div class="grp"><small>Ракурс</small>
       <div class="seg" id="segA"><button type="button" data-angle="0" aria-pressed="true">Спереди</button><button type="button" data-angle="1" aria-pressed="false">Сбоку</button><button type="button" data-angle="2" aria-pressed="false">Сзади</button></div>
@@ -498,9 +513,15 @@ a{color:inherit}
   </div>
 
   <div class="below">
-    <div><p class="nm" id="nm">Клиентка 1</p></div>
-    <blockquote class="q">Здесь будет отзыв клиентки её словами.</blockquote>
+    <div class="who">
+      <p class="nm" id="nm">Клиентка 1</p>
+      <button class="nmb" id="nmb" type="button" aria-expanded="false" aria-controls="rev" hidden><span id="nmbT">Кристина</span><small>Отзыв</small><i aria-hidden="true">↓</i></button>
+    </div>
     <button class="go" id="go" type="button">Показать результат</button>
+    <div class="rev" id="rev"><div><div class="rev-in">
+      <p class="rev-h">Отзыв <span id="revN">Кристины</span></p>
+      <blockquote class="rev-t" id="revT"></blockquote>
+    </div></div></div>
   </div>
   </div>
 </section>
@@ -659,20 +680,21 @@ a{color:inherit}
 </script>
 <script>
 (function(){
-  var IMG=[{"b": {"side": "img/35cdbf7417.jpg", "front": "img/f58034aef8.jpg", "back": "img/b816797fe1.jpg"}, "a": {"back": "img/599ea7ebd8.jpg", "side": "img/6093a68ced.jpg", "front": "img/aaecbc0df3.jpg"}}, {"b": {"front": "img/899632e7f7.jpg", "side": "img/d653002610.jpg", "back": "img/ed625935ed.jpg"}, "a": {"front": "img/5065de20e6.jpg", "side": "img/5e5f1847bd.jpg", "back": "img/94598564f8.jpg"}}];
-  var ANG=['front','side','back'],LAB=['Спереди','Сбоку','Сзади'],NAMES=['Клиентка 1','Клиентка 2'];
+  var IMG=[{"b": {"side": "img/35cdbf7417.jpg", "front": "img/f58034aef8.jpg", "back": "img/b816797fe1.jpg"}, "a": {"back": "img/599ea7ebd8.jpg", "side": "img/6093a68ced.jpg", "front": "img/aaecbc0df3.jpg"}}, {"b": {"front": "img/899632e7f7.jpg", "side": "img/d653002610.jpg", "back": "img/ed625935ed.jpg"}, "a": {"front": "img/5065de20e6.jpg", "side": "img/5e5f1847bd.jpg", "back": "img/94598564f8.jpg"}}, {"b": {"front": "img/9990cb953c.jpg", "side": "img/5f743be494.jpg", "back": "img/2cd5314cdc.jpg"}, "a": {"front": "img/020bdd630c.jpg", "side": "img/668b2f2045.jpg", "back": "img/d1bdde615c.jpg"}}];
+  var ANG=['front','side','back'],LAB=['Спереди','Сбоку','Сзади'],NAMES=['Клиентка 1','Клиентка 2','Кристина'],GEN=['','','Кристины'],REV=['','','Лерочка❤️\nХочу искренне поблагодарить тебя за грамотный подход к тренировкам!\nЯ уже вижу заметный результат и чувствую прогресс)\nОтдельно ценно, что каждое занятие с тобой проходит комфортно🫶\nСпасибо за качественную работу и мотивацию двигаться дальше, ты лучшая в своем деле!💯'];
   var c=0,a=0,flipped=false;
   function $(id){return document.getElementById(id)}
   var book=$('book'),hit=$('hit'),go=$('go');
   var imgs=[$('imgF'),$('imgB'),$('imgA')];
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function revOpen(v){$('rev').classList.toggle('open',v);$('nmb').setAttribute('aria-expanded',v?'true':'false')}
   function paint(){
     var k=ANG[a];
     $('imgF').src=IMG[c].b[k];$('imgB').src=IMG[c].b[k];$('imgA').src=IMG[c].a[k];
     $('imgF').alt='Было: '+NAMES[c]+', '+LAB[a].toLowerCase();
     $('imgA').alt='Стало: '+NAMES[c]+', '+LAB[a].toLowerCase();
     ['capF','capB','capA'].forEach(function(id){$(id).textContent=LAB[a]});
-    $('kick').textContent=NAMES[c];$('nm').textContent=NAMES[c];
+    $('kick').textContent=NAMES[c];$('nm').textContent=NAMES[c];var hasR=!!REV[c];$('nm').hidden=hasR;$('nmb').hidden=!hasR;if(hasR){$('nmbT').textContent=NAMES[c];$('revN').textContent=GEN[c];$('revT').textContent=REV[c]}revOpen(false);
     book.setAttribute('data-c',c);
   }
   function swap(){
@@ -686,6 +708,7 @@ a{color:inherit}
     go.textContent=v?'Вернуть «Было»':'Показать результат';
   }
   hit.addEventListener('click',function(){setFlip(!flipped)});
+  $('nmb').addEventListener('click',function(){revOpen(!$('rev').classList.contains('open'))});
   go.addEventListener('click',function(){setFlip(!flipped)});
   ['pointerenter','focus'].forEach(function(e){hit.addEventListener(e,function(){book.classList.add('peek')})});
   ['pointerleave','blur'].forEach(function(e){hit.addEventListener(e,function(){book.classList.remove('peek')})});
