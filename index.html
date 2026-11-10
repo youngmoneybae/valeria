@@ -374,6 +374,34 @@ a{color:inherit}
   .book,.leaf,.shade,.ph img{transition:none!important}
   .book.nudge{animation:none!important}
 }
+
+/* плавный скролл (Lenis): инерция у колеса мыши и тачпада, на телефоне остаётся родная прокрутка */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:clip}
+.lenis.lenis-smooth iframe{pointer-events:none}
+
+/* появление блоков при прокрутке: класс .rv вешает скрипт внизу страницы и снимает его, когда блок показан */
+.rv{opacity:0;transform:translate3d(var(--rx,0),var(--ry,28px),0) scale(var(--rs,1));transition:opacity var(--rt,.9s) cubic-bezier(.2,.7,.2,1) var(--d,0ms),transform var(--rt,.9s) cubic-bezier(.2,.7,.2,1) var(--d,0ms);will-change:opacity,transform}
+.rv-x{--rx:-22px;--ry:0px}
+.rv-stage{--ry:40px;--rs:.97}
+.rv-card{--ry:72px;--rt:1s}
+.rv-bar{--ry:0px;--rt:.7s;transform:scaleY(.12);transform-origin:50% 100%}
+.rv.in{opacity:1;transform:none}
+
+/* первый экран: плавный выход при загрузке, без скрипта */
+@keyframes rvIn{from{opacity:0;transform:translate3d(0,var(--ry,28px),0)}to{opacity:1;transform:none}}
+@keyframes rvFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:no-preference){
+  .hero .mark{animation:rvFade .9s ease both .05s}
+  .hero h1 span,.hero .lead,.hero .ctas,.hero .motto{animation:rvIn 1s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--hd,0ms)}
+  .hero h1 span:nth-child(1){--hd:150ms}
+  .hero h1 span:nth-child(2){--hd:270ms}
+  .hero .lead{--hd:410ms}
+  .hero .ctas{--hd:530ms}
+  .hero .motto{--hd:680ms}
+  .hero-photo{animation:rvFade 1.2s ease both}
+}
 </style>
 
 <header class="top">
@@ -816,5 +844,97 @@ a{color:inherit}
   paint();
   var st=document.getElementById('meStage');
   if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){inset.classList.add('nudge');o.disconnect()}})},{threshold:.6});o.observe(st)}
+})();
+</script>
+<script src="lib/lenis.min.js"></script>
+<script>
+(function(){
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce)return;
+
+  /* плавный скролл */
+  if(window.Lenis){
+    try{
+      window.__lenis=new Lenis({
+        duration:1.15,
+        easing:function(t){return Math.min(1,1.001-Math.pow(2,-10*t))},
+        smoothWheel:true,
+        anchors:true,
+        autoRaf:true
+      });
+    }catch(e){}
+  }
+
+  /* выезжающие блоки: [селектор, доп. класс, шаг задержки между соседями, мс] */
+  if(!('IntersectionObserver' in window))return;
+  var RULES=[
+    ['.manifest blockquote','',0],
+    ['.trio > div','',110],
+    ['.exp-top > *','',110],
+    ['.bb-l > div','',110],
+    ['.me-eyebrow, .me-txt h2, .me-txt .lead, .me-angles, .me-hint','',90],
+    ['.me-stage','rv-stage',0],
+    ['.dir-top > *','',110],
+    ['.idx-row','',110],
+    ['.pack-grid h2, .pack-grid .lead','',90],
+    ['.list li','rv-x',90],
+    ['.day-h, .hours-l','',0],
+    ['.hours i','rv-bar',22],
+    ['#reviews h2, #reviews .lead','',90],
+    ['.ctrl .grp','',90],
+    ['.stage','rv-stage',0],
+    ['.below','',0],
+    ['.tar-grid > div:first-child > *','',90],
+    ['.fmt, .ticket','',90],
+    ['.card','rv-card',130],
+    ['.edu h2, .edu .row','',90],
+    ['.two > div:last-child h2, .addr','',100],
+    ['.goal h2, .goal .lead','',90],
+    ['.links a','',110]
+  ];
+  var all=[];
+  function clean(el){
+    el.classList.remove('rv','in');
+    if(el._rv&&el._rv.x)el.classList.remove(el._rv.x);
+    el.style.removeProperty('--d');
+  }
+  function show(el,d){
+    if(el._rv.done)return;
+    el._rv.done=true;io.unobserve(el);
+    el.style.setProperty('--d',d+'ms');
+    el.classList.add('in');
+    /* когда появление закончилось, возвращаем элементу его родные стили (hover и т.п.) */
+    setTimeout(function(){clean(el)},d+1400);
+  }
+  var io=new IntersectionObserver(function(es){
+    var hit=es.filter(function(e){return e.isIntersecting}).map(function(e){return e.target});
+    hit.sort(function(a,b){return a.compareDocumentPosition(b)&4?-1:1});
+    var d=0;
+    hit.forEach(function(el){show(el,Math.min(d,700));d+=el._rv.s});
+  },{threshold:0,rootMargin:'0px 0px -10% 0px'});
+  try{
+    RULES.forEach(function(r){
+      [].forEach.call(document.querySelectorAll(r[0]),function(el){
+        if(el._rv)return;
+        el._rv={x:r[1],s:r[2],done:false};
+        el.classList.add('rv');
+        if(r[1])el.classList.add(r[1]);
+        all.push(el);
+      });
+    });
+    all.forEach(function(el){io.observe(el)});
+  }catch(e){all.forEach(clean);return}
+
+  /* если страницу долистали до самого низа, показываем всё, что ещё не появилось */
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick)return;tick=true;
+    requestAnimationFrame(function(){
+      tick=false;
+      if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-8){
+        all.forEach(function(el){if(!el._rv.done&&el.offsetParent!==null)show(el,0)});
+      }
+    });
+  },{passive:true});
 })();
 </script>
